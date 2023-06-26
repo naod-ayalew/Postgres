@@ -1,0 +1,52 @@
+Today was learning how to create a database and becoming familiar with
+the bash shell:
+
+
+LESSON 1 -- Database creation
+
+-# CREATE DATABASE [databasename];
+
+psql -h [localhost | remote ip address] -p 5432 -U [username] [databasename]]
+Connection options:
+  -h, --host=HOSTNAME      database server host or socket directory (default: "local socket")
+  -p, --port=PORT          database server port (default: "5432")
+  -U, --username=USERNAME  database user name (default: "naodyimam")
+  -w, --no-password        never prompt for password
+  -W, --password           force password prompt (should happen automatically)
+
+
+  Some common options:
+
+  \l -- list databases
+  \c -- change to other database 
+  \q -- quit
+
+  Lesson 2  -- Creating a Table
+
+  CREATE TABLE table_name {
+    Column name + data type + constraints, 
+    etc,
+    etc
+  }
+
+Here is what it looks like with a real table, but there 
+aren't any constraints. Constraints are necessary to ensure
+the completeness and integrity of the data.
+
+test=# CREATE TABLE person (
+test(# id INT,
+test(# first_name VARCHAR(50),
+test(# last_name VARCHAR(50),
+test(# gender VARCHAR(7),
+test(# date_of_birth DATE);
+
+Using NOT NULL as a constraint makes sure that the column in the table must
+be filled in.
+
+BIGSERIAL as a data time lets the items automatically be ordered
+so the id column would be incremented by one.
+
+After the table is created, you can view the relation in detail with the command:
+
+\d [tablename]
+
