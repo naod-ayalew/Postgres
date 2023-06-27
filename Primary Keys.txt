@@ -1,0 +1,28 @@
+A primary key is unique to each row in a relation. It uniquely identifies
+a row.
+
+You can't have duplicate records with the same primary key. 
+
+                                        Table "public.person"
+      Column      |         Type          | Collation | Nullable |              Default               
+------------------+-----------------------+-----------+----------+------------------------------------
+ id               | bigint                |           | not null | nextval('person_id_seq'::regclass)
+ first_name       | character varying(50) |           | not null | 
+ last_name        | character varying(50) |           | not null | 
+ gender           | character varying(50) |           | not null | 
+ email            | character varying(50) |           |          | 
+ date_of_birth    | date                  |           | not null | 
+ country_of_birth | character varying(50) |           | not null | 
+Indexes:
+    "person_pkey" PRIMARY KEY, btree (id)
+
+
+IN this example, the id is the primary key. And the constraint is:
+
+"person_pkey", and we can drop it:
+
+ALTER TABLE person DROP CONSTRAINT "person_pkey"
+
+We can add PRIMARY KEYS with the commande below:
+
+ ALTER TABLE person ADD PRIMARY KEY (id);
